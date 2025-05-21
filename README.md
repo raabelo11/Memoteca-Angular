@@ -1,27 +1,57 @@
-# Memoteca
+# Configurações iniciais para rodar o Projeto Memoteca
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+Este documento lista todas as ferramentas e comandos necessários para configurar e rodar o projeto Memoteca.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 1. Instalar Node.js e npm
 
-## Code scaffolding
+- Baixe e instale a versão LTS do Node.js (inclui o npm) em:  
+  https://nodejs.org/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Verifique as versões instaladas:  
+  ```bash
+  node -v
+  npm -v
 
-## Build
+## 2. Instalar Angular CLI globalmente
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- npm install -g @angular/cli
+- Verifique as versões instaladas:  
+  ```bash
+  ng version
 
-## Running unit tests
+## 3. Configurar o projeto Angular
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Navegue até a pasta do seu projeto Angular (ou clone o repositório):
+- cd Memoteca-Angular
 
-## Running end-to-end tests
+Instale as dependências do projeto:
+- npm install
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 4. Instalar json-server localmente na versão recomendada
 
-## Further help
+- npm install json-server@0.17.3 --save-dev
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Criar e configurar o arquivo db.json. Na raiz do projeto, crie o arquivo db.json com o seguinte conteúdo:
+
+{
+  "pensamentos": []
+}
+
+Executar o json-server na porta 3000
+
+- npx json-server --watch db.json --port 3000
+
+Executar o projeto Angular
+
+- ng serve
+
+## Observações:
+
+- A aplicação Angular ficará disponível em: http://localhost:4200
+- Para buscar todos os pensamentos (GET): http://localhost:3000/pensamentos
+- Para criar um pensamento (POST): http://localhost:3000/pensamentos
+- Sempre que alterar o arquivo db.json, reinicie o json-server para aplicar as mudanças.
+- Caso receba erro 404 em POST ou GET, confira se o json-server está rodando e se o arquivo db.json contém o recurso correto (pensamentos).
+- Utilize o Angular HttpClient para consumir a API no frontend.
