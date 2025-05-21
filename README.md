@@ -6,33 +6,37 @@ Este documento lista todas as ferramentas e comandos necessários para configura
 
 ## 1. Instalar Node.js e npm
 
-- Baixe e instale a versão LTS do Node.js (inclui o npm) em:  
+Baixe e instale a versão LTS do Node.js (inclui o npm) em:  
   https://nodejs.org/
 
-- Verifique as versões instaladas:  
-  ```bash
+Verifique as versões instaladas:  
+  ````
   node -v
   npm -v
-
+  ````
 ## 2. Instalar Angular CLI globalmente
-
-- npm install -g @angular/cli
-- Verifique as versões instaladas:  
+  ````
+  npm install -g @angular/cli
+  ````
+Verifique a versão instalada:  
   ```bash
   ng version
+  ````
 
 ## 3. Configurar o projeto Angular
 
 Navegue até a pasta do seu projeto Angular (ou clone o repositório):
-- cd Memoteca-Angular
-
+  ````
+  cd Memoteca-Angular
+  ````
 Instale as dependências do projeto:
-- npm install
-
+````
+npm install
+````
 ## 4. Instalar json-server localmente na versão recomendada
-
-- npm install json-server@0.17.3 --save-dev
-
+````
+npm install json-server@0.17.3 --save-dev
+````
 Criar e configurar o arquivo db.json. Na raiz do projeto, crie o arquivo db.json com o seguinte conteúdo:
 
 {
@@ -40,13 +44,13 @@ Criar e configurar o arquivo db.json. Na raiz do projeto, crie o arquivo db.json
 }
 
 Executar o json-server na porta 3000
-
-- npx json-server --watch db.json --port 3000
-
+````
+npx json-server --watch db.json --port 3000
+````
 Executar o projeto Angular
-
-- ng serve
-
+````
+ng serve
+````
 ## Observações:
 
 - A aplicação Angular ficará disponível em: http://localhost:4200
